@@ -1,0 +1,25 @@
+Parámetros Tree-Tagger para o Português
+
+Autor: Pablo Gamallo, Grupo ProLNat@GE, Universidade de Santiago de Compostela
+Data: 22/12/2011
+
+Requisitos:
+Deves instalar previamente o Tree-Tagger no directório raiz do usuário.
+
+Instalação dos ficheiros de parámetros: 
+Uma vez instalado o tree-tagger na tua máquina, segue estas duas indicações:
+(1) descarrega este ficheiro comprimido e coloca-o no directório raiz do tree-tagger (que tem o nome "tree-tagger") ,
+(2) descompacta o ficheiro comprimido:
+tar   xzvf   tree-taggerPT-GZ.tar.gz
+
+Como usar o tagger?
+Se queres analisar um ficheiro de texto em português, vai ao directório "cmd" e executa:
+
+~/tree-tagger/cmd>   cat  <input_file>  | ./ tree-tagger-pt"
+
+Se queres usar tags enriquezidos com mais informação morfológica, utiliza o flag -e:
+
+~/tree-tagger/cmd>   cat  <input_file>  | ./ tree-tagger-pt -e yes
+
+
+Podes consultar a lista de tags utilizados em parole-pt.html 

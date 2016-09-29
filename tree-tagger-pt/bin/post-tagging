@@ -1,0 +1,70 @@
+#!/usr/bin/perl -w
+
+
+binmode STDIN, ':utf8';
+binmode STDOUT, ':utf8';
+use utf8;
+#binmode STDOUT, ":encoding(UTF-8)";
+use Encode qw(encode decode);
+
+
+$par=shift(@ARGV);
+
+if ($par eq "-yes") {
+   $EXP=1
+}
+if ($par eq "-no") {
+   $EXP=0
+}
+
+$UpperCase = "[A-ZÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÑÇ]" ;
+while (<>) {
+  # $_ = decode("utf-8", $_);
+   chop($_);
+  # print  "$_\n";
+  # $_ =~ s/[\*\+]+/-/g;
+
+   if ($_ eq "" || $_ =~ /^<[\w\W]*>$/ || $_ !~ /\t/ )  {
+      next
+   }
+
+  else {
+
+     ($token, $tag, $lemma) = split("\t", $_);
+
+
+      #identificar um possível nome próprio (desconhecido ou composto) e passar lemma a minúscula:
+     if ($lemma =~ /<unknown>/ && $token =~ /^$UpperCase/ ) {
+      #if ($lemma =~ /<unknown>/ && $token =~ /\U$token/ ) {
+     #if ($lemma =~ /<unknown>/ && $token =~ /^[A-ZÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÑÇ]/ ) {
+         if ($EXP == 1) {
+              $tag = "NP00000"
+         }
+         else {
+           $tag = "NP0"
+         }
+         
+         $lemma = $token;
+         $lemma =  lc($lemma);       
+     }
+
+   ##corrigir NP0
+#   if ($tag =~ /NP0/) {
+#      $tag =  "NP";            
+ #  }
+
+    #print encode('utf-8', "$token\t$tag\t$lemma\n");
+    print "$token\t$tag\t$lemma\n";
+  }
+  
+}
+
+sub UpperToLower {
+    local ($l) = @_;
+     $l =~tr/A-Z/a-z/;
+     $l =~tr/ÑÇ/ñç/;
+     $l =~tr/ÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙ/áéíóúâêîôûàèìòù/;
+     return $l;
+}
+
+

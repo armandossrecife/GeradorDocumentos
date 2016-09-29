@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="Exemplos de Editores de texto">
+            <file>file:/D:/mestrado/netbeans/SRSEDITOR/src/view/Editor.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITOR/src/view/IntroducaoView.java</file>
+        </group>
+        <group name="Sagres"/>
+        <group>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/META-INF/persistence.xml</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/ParserIsr.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/DAO/DAO.java</file>
+        </group>
+        <group name="Sagres2015">
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/ParserDescricaoCasoDeUso.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/ParserDescricaoFuncao.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/analiseTexto/AnalisePeriodo.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/AbstractParser.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/DAO/DicionarioDAO.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/ParserNomeFuncao.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/dicionario/Dicionario.java</file>
+        </group>
+        <group name="Sagres2016">
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/analiseTexto/AnalisePeriodo.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/view/TabelaView.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/intellisense/ParserDescricaoFuncao.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/SRSJTree/TreeBuilder.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORM/src/view/CasoDeUsoView.java</file>
+        </group>
+        <group name="Temp"/>
+        <group name="SagresFolha2017">
+            <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/META-INF/persistence.xml</file>
+        </group>
+        <group name="Mestrado">
+            <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/tools/Constante.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/DAO/CriarBanco.java</file>
+            <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/META-INF/persistence.xml</file>
+        </group>
+    </open-files>
+</project-private>

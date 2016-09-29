@@ -1,0 +1,94 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=./bin
+CMD=./cmd
+LIB=./lib
+
+TOKENIZER=${BIN}/separate-punctuation
+SPLITTER=${BIN}/splitter.perl
+TAGGER=${BIN}/tree-tagger
+ABBR_LIST=${LIB}/portuguese-abbreviations
+#ENTITIES=${BIN}/NomesPropriosComPrep.perl
+POST_TAGGING=${BIN}/post-tagging
+PARFILE=${LIB}/pt.par
+PARFILE_EXP=${LIB}/pt_exp.par
+
+if  [ "$1" = "-h" ] ||  [ "$1" = "--help" ]; then
+  h="yes";
+fi
+ 
+until [ -z "$1" ]; do
+  case "$1" in
+    -e|--expand) shift; expand="$1"; shift ;;
+    -f|--input) shift; input="$1"; shift ;;
+    #-h|--help) shift; help="$1"; shift ;;
+     -*) shift ;;
+    *) break ;;
+  esac
+done
+
+help()
+{
+  echo "Syntax: ./tree-tagger-pt [-f file] [-e yes]
+      
+  -e yes : output with expanded tags. By default, it returns short tags.      
+
+  Alternatively, you can enter a file or text with the pipe system:
+  cat file | ./tree-tagger-pt   
+"
+  exit
+}
+
+
+if [ "$h" = "yes" ] ; then
+ help;
+ echo "help"
+
+elif [ "$expand" != "yes" ] ; then
+
+  # put all on one line
+  cat $input |
+
+  ##splitting 
+
+  $SPLITTER |
+
+  #pre-tokenization
+  sed "s/\([\)\"\'\?\!]\)\([\.\,\;\:]\)/ \1 \2/g" |
+
+  # tokenizing
+  $TOKENIZER +1 +s +l $ABBR_LIST |
+  # remove empty lines
+  grep -v '^$' |
+
+  # tagging
+  $TAGGER $PARFILE -token -lemma -sgml | 
+
+  $POST_TAGGING -no
+
+
+elif   [ "$expand" = "yes" ] ; then
+
+  # put all on one line
+  cat $input |
+
+  ##splitting 
+
+  $SPLITTER |
+
+  #pre-tokenization
+  sed "s/\([\)\"\'\?\!]\)\([\.\,\;\:]\)/ \1 \2/g" |
+
+  #tokenizing
+  $TOKENIZER +1 +s +l $ABBR_LIST |
+  # remove empty lines
+  grep -v '^$' |
+
+  # tagging
+  $TAGGER $PARFILE_EXP -token -lemma -sgml | 
+
+  $POST_TAGGING -yes
+
+fi
