@@ -643,6 +643,7 @@ public class DicionarioDAO {
     private List<String> verificarNgramas(List<String> listaPalavras, List<String> palavras) {
 
         for (String temp1 : listaPalavras) {
+            if(temp1!=null)
             if (temp1.indexOf(" ") >= 0) {
                 String[] termos = temp1.split(" ");
                 for (int i = 0; i <= termos.length - 1; i++) {
