@@ -770,7 +770,7 @@ public class SpellChecker {
     /**
      * Gets the current
      * <code>Locale</code>. The current Locale will be set if the user selects
-     * one, or when calling <ode>registerDictionaries</code>.
+     * one, or when calling <code>registerDictionaries</code>.
      *
      * @return the current <code>Locale</code> or null if none is set.
      * @see #registerDictionaries(URL, String, String)
