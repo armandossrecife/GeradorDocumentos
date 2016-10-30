@@ -5,11 +5,11 @@
  */
 package view.tools;
 
-import DAO.DAO;
-import DAO.DicionarioDAO;
-import JTable.CustomRenderer;
-import JTable.CustomRendererTableDicionario;
-import dicionario.Dicionario;
+import dados.DAO.DAO;
+import dados.DAO.DicionarioDAO;
+import visao.view.JTable.CustomRenderer;
+import visao.view.JTable.CustomRendererTableDicionario;
+import controle.dicionario.Dicionario;
 import entity.Atributo;
 import entity.CasoDeUso;
 import entity.Projeto;
@@ -44,8 +44,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import nGramas.NGrama;
-import tools.Constante;
+import controle.nGramas.NGrama;
+import visao.view.tools.Constante;
 import view.Editor;
 
 /**
