@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package entidades.tools;
+package entidades.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -13,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -25,29 +25,37 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "proximo")
+@Table(name = "acao",
+       indexes = {
+         @Index(name = "IUNIQUE", columnList = "id_projeto,objeto,verbo", unique = true)}
+)
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Proximo.findAll", query = "SELECT p FROM Proximo p"),
-    @NamedQuery(name = "Proximo.findById", query = "SELECT p FROM Proximo p WHERE p.id = :id"),
-    @NamedQuery(name = "Proximo.findByDe", query = "SELECT p FROM Proximo p WHERE p.de = :de")})
-public class Proximo implements Serializable {
+    @NamedQuery(name = "Acao.findAll", query = "SELECT a FROM Acao a"),
+    @NamedQuery(name = "Acao.findById", query = "SELECT a FROM Acao a WHERE a.id = :id"),
+    @NamedQuery(name = "Acao.findByObjeto", query = "SELECT a FROM Acao a WHERE a.objeto = :objeto"),
+    @NamedQuery(name = "Acao.findByVerbo", query = "SELECT a FROM Acao a WHERE a.verbo = :verbo")})
+
+public class Acao implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "de")
-    private String de;
-    @JoinColumn(name = "id_verbo", referencedColumnName = "id")
+    @Column(name = "objeto")
+    private String objeto;
+    @Column(name = "verbo")
+    private String verbo;
+    @JoinColumn(name = "id_projeto", referencedColumnName = "id")
     @ManyToOne
-    private Verbo idVerbo;
+    private Projeto idProjeto;
 
-    public Proximo() {
+    public Acao() {
     }
 
-    public Proximo(Integer id) {
+    public Acao(Integer id) {
         this.id = id;
     }
 
@@ -59,20 +67,28 @@ public class Proximo implements Serializable {
         this.id = id;
     }
 
-    public String getDe() {
-        return de;
+    public String getObjeto() {
+        return objeto;
     }
 
-    public void setDe(String de) {
-        this.de = de;
+    public void setObjeto(String objeto) {
+        this.objeto = objeto;
     }
 
-    public Verbo getIdVerbo() {
-        return idVerbo;
+    public String getVerbo() {
+        return verbo;
     }
 
-    public void setIdVerbo(Verbo idVerbo) {
-        this.idVerbo = idVerbo;
+    public void setVerbo(String verbo) {
+        this.verbo = verbo;
+    }
+
+    public Projeto getIdProjeto() {
+        return idProjeto;
+    }
+
+    public void setIdProjeto(Projeto idProjeto) {
+        this.idProjeto = idProjeto;
     }
 
     @Override
@@ -85,10 +101,10 @@ public class Proximo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Proximo)) {
+        if (!(object instanceof Acao)) {
             return false;
         }
-        Proximo other = (Proximo) object;
+        Acao other = (Acao) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +113,7 @@ public class Proximo implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.tools.Proximo[ id=" + id + " ]";
+        return "entity.Acao[ id=" + id + " ]";
     }
-    
+
 }

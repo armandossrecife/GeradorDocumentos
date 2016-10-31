@@ -4,53 +4,50 @@
  * and open the template in the editor.
  */
 
-package entidades.tools;
+package entidades.entity.tools;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author helcio.soares
  */
 @Entity
-@Table(name = "gramatica")
+@Table(name = "proximo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Gramatica.findAll", query = "SELECT g FROM Gramatica g"),
-    @NamedQuery(name = "Gramatica.findById", query = "SELECT g FROM Gramatica g WHERE g.id = :id"),
-    @NamedQuery(name = "Gramatica.findByNome", query = "SELECT g FROM Gramatica g WHERE g.nome = :nome"),
-    @NamedQuery(name = "Gramatica.findByDe", query = "SELECT g FROM Gramatica g WHERE g.de = :de")})
-public class Gramatica implements Serializable {
+    @NamedQuery(name = "Proximo.findAll", query = "SELECT p FROM Proximo p"),
+    @NamedQuery(name = "Proximo.findById", query = "SELECT p FROM Proximo p WHERE p.id = :id"),
+    @NamedQuery(name = "Proximo.findByDe", query = "SELECT p FROM Proximo p WHERE p.de = :de")})
+public class Proximo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nome")
-    private String nome;
     @Column(name = "de")
     private String de;
-//    @OneToMany(mappedBy = "idGramatica")
-//    private Collection<MensagemErro> mensagemErroCollection;
+    @JoinColumn(name = "id_verbo", referencedColumnName = "id")
+    @ManyToOne
+    private Verbo idVerbo;
 
-    public Gramatica() {
+    public Proximo() {
     }
 
-    public Gramatica(Integer id) {
+    public Proximo(Integer id) {
         this.id = id;
     }
 
@@ -62,14 +59,6 @@ public class Gramatica implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getDe() {
         return de;
     }
@@ -78,14 +67,13 @@ public class Gramatica implements Serializable {
         this.de = de;
     }
 
-//    @XmlTransient
-//    public Collection<MensagemErro> getMensagemErroCollection() {
-//        return mensagemErroCollection;
-//    }
-//
-//    public void setMensagemErroCollection(Collection<MensagemErro> mensagemErroCollection) {
-//        this.mensagemErroCollection = mensagemErroCollection;
-//    }
+    public Verbo getIdVerbo() {
+        return idVerbo;
+    }
+
+    public void setIdVerbo(Verbo idVerbo) {
+        this.idVerbo = idVerbo;
+    }
 
     @Override
     public int hashCode() {
@@ -97,10 +85,10 @@ public class Gramatica implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Gramatica)) {
+        if (!(object instanceof Proximo)) {
             return false;
         }
-        Gramatica other = (Gramatica) object;
+        Proximo other = (Proximo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -109,7 +97,7 @@ public class Gramatica implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.tools.Gramatica[ id=" + id + " ]";
+        return "entity.tools.Proximo[ id=" + id + " ]";
     }
     
 }

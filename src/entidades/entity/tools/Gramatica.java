@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package entidades.tools;
+package entidades.entity.tools;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -26,33 +26,31 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "verbo")
+@Table(name = "gramatica")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Verbo.findAll", query = "SELECT v FROM Verbo v"),
-    @NamedQuery(name = "Verbo.findById", query = "SELECT v FROM Verbo v WHERE v.id = :id"),
-    @NamedQuery(name = "Verbo.findByDe", query = "SELECT v FROM Verbo v WHERE v.de = :de"),
-    @NamedQuery(name = "Verbo.findByProx", query = "SELECT v FROM Verbo v WHERE v.prox = :prox")})
-public class Verbo implements Serializable {
+    @NamedQuery(name = "Gramatica.findAll", query = "SELECT g FROM Gramatica g"),
+    @NamedQuery(name = "Gramatica.findById", query = "SELECT g FROM Gramatica g WHERE g.id = :id"),
+    @NamedQuery(name = "Gramatica.findByNome", query = "SELECT g FROM Gramatica g WHERE g.nome = :nome"),
+    @NamedQuery(name = "Gramatica.findByDe", query = "SELECT g FROM Gramatica g WHERE g.de = :de")})
+public class Gramatica implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "nome")
+    private String nome;
     @Column(name = "de")
     private String de;
-    @Column(name = "prox")
-    private String prox;
-//    @OneToMany(mappedBy = "idVerbo")
-//    private Collection<Proximo> proximoCollection;
-//    @OneToMany(mappedBy = "idVerbo")
-//    private Collection<Sinonimo> sinonimoCollection;
+//    @OneToMany(mappedBy = "idGramatica")
+//    private Collection<MensagemErro> mensagemErroCollection;
 
-    public Verbo() {
+    public Gramatica() {
     }
 
-    public Verbo(Integer id) {
+    public Gramatica(Integer id) {
         this.id = id;
     }
 
@@ -64,6 +62,14 @@ public class Verbo implements Serializable {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getDe() {
         return de;
     }
@@ -72,30 +78,13 @@ public class Verbo implements Serializable {
         this.de = de;
     }
 
-    public String getProx() {
-        return prox;
-    }
-
-    public void setProx(String prox) {
-        this.prox = prox;
-    }
-
 //    @XmlTransient
-//    public Collection<Proximo> getProximoCollection() {
-//        return proximoCollection;
+//    public Collection<MensagemErro> getMensagemErroCollection() {
+//        return mensagemErroCollection;
 //    }
 //
-//    public void setProximoCollection(Collection<Proximo> proximoCollection) {
-//        this.proximoCollection = proximoCollection;
-//    }
-//
-//    @XmlTransient
-//    public Collection<Sinonimo> getSinonimoCollection() {
-//        return sinonimoCollection;
-//    }
-//
-//    public void setSinonimoCollection(Collection<Sinonimo> sinonimoCollection) {
-//        this.sinonimoCollection = sinonimoCollection;
+//    public void setMensagemErroCollection(Collection<MensagemErro> mensagemErroCollection) {
+//        this.mensagemErroCollection = mensagemErroCollection;
 //    }
 
     @Override
@@ -108,10 +97,10 @@ public class Verbo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Verbo)) {
+        if (!(object instanceof Gramatica)) {
             return false;
         }
-        Verbo other = (Verbo) object;
+        Gramatica other = (Gramatica) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -120,7 +109,7 @@ public class Verbo implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.tools.Verbo[ id=" + id + " ]";
+        return "entity.tools.Gramatica[ id=" + id + " ]";
     }
     
 }

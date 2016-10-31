@@ -3,60 +3,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades;
+package entidades.entity.tools;
 
+import entidades.entity.Palavra;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author helcio.soares
  */
 @Entity
-@Table(name = "acao",
-       indexes = {
-         @Index(name = "IUNIQUE", columnList = "id_projeto,objeto,verbo", unique = true)}
-)
+@Table(name = "classe_gramatical")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Acao.findAll", query = "SELECT a FROM Acao a"),
-    @NamedQuery(name = "Acao.findById", query = "SELECT a FROM Acao a WHERE a.id = :id"),
-    @NamedQuery(name = "Acao.findByObjeto", query = "SELECT a FROM Acao a WHERE a.objeto = :objeto"),
-    @NamedQuery(name = "Acao.findByVerbo", query = "SELECT a FROM Acao a WHERE a.verbo = :verbo")})
-
-public class Acao implements Serializable {
-
+    @NamedQuery(name = "ClasseGramatical.findAll", query = "SELECT c FROM ClasseGramatical c"),
+    @NamedQuery(name = "ClasseGramatical.findById", query = "SELECT c FROM ClasseGramatical c WHERE c.id = :id"),
+    @NamedQuery(name = "ClasseGramatical.findByDe", query = "SELECT c FROM ClasseGramatical c WHERE c.de = :de")})
+public class ClasseGramatical implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "objeto")
-    private String objeto;
-    @Column(name = "verbo")
-    private String verbo;
-    @JoinColumn(name = "id_projeto", referencedColumnName = "id")
-    @ManyToOne
-    private Projeto idProjeto;
+    @Basic(optional = false)
+    @Column(name = "de")
+    private String de;
+//    @OneToMany(mappedBy = "idClasseGramatical")
+//    private Collection<Palavra> palavraCollection;
 
-    public Acao() {
+    public ClasseGramatical() {
     }
 
-    public Acao(Integer id) {
+    public ClasseGramatical(Integer id) {
         this.id = id;
+    }
+
+    public ClasseGramatical(Integer id, String de) {
+        this.id = id;
+        this.de = de;
     }
 
     public Integer getId() {
@@ -67,29 +65,22 @@ public class Acao implements Serializable {
         this.id = id;
     }
 
-    public String getObjeto() {
-        return objeto;
+    public String getDe() {
+        return de;
     }
 
-    public void setObjeto(String objeto) {
-        this.objeto = objeto;
+    public void setDe(String de) {
+        this.de = de;
     }
 
-    public String getVerbo() {
-        return verbo;
-    }
-
-    public void setVerbo(String verbo) {
-        this.verbo = verbo;
-    }
-
-    public Projeto getIdProjeto() {
-        return idProjeto;
-    }
-
-    public void setIdProjeto(Projeto idProjeto) {
-        this.idProjeto = idProjeto;
-    }
+//    @XmlTransient
+//    public Collection<Palavra> getPalavraCollection() {
+//        return palavraCollection;
+//    }
+//
+//    public void setPalavraCollection(Collection<Palavra> palavraCollection) {
+//        this.palavraCollection = palavraCollection;
+//    }
 
     @Override
     public int hashCode() {
@@ -101,10 +92,10 @@ public class Acao implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Acao)) {
+        if (!(object instanceof ClasseGramatical)) {
             return false;
         }
-        Acao other = (Acao) object;
+        ClasseGramatical other = (ClasseGramatical) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -113,7 +104,7 @@ public class Acao implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Acao[ id=" + id + " ]";
+        return de;
     }
-
+    
 }

@@ -3,58 +3,55 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades.tools;
 
-import entidades.Palavra;
+package entidades.entity.tools;
+
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author helcio.soares
  */
 @Entity
-@Table(name = "classe_gramatical")
+@Table(name = "mensagem_erro")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ClasseGramatical.findAll", query = "SELECT c FROM ClasseGramatical c"),
-    @NamedQuery(name = "ClasseGramatical.findById", query = "SELECT c FROM ClasseGramatical c WHERE c.id = :id"),
-    @NamedQuery(name = "ClasseGramatical.findByDe", query = "SELECT c FROM ClasseGramatical c WHERE c.de = :de")})
-public class ClasseGramatical implements Serializable {
+    @NamedQuery(name = "MensagemErro.findAll", query = "SELECT m FROM MensagemErro m"),
+    @NamedQuery(name = "MensagemErro.findById", query = "SELECT m FROM MensagemErro m WHERE m.id = :id"),
+    @NamedQuery(name = "MensagemErro.findByErro", query = "SELECT m FROM MensagemErro m WHERE m.erro = :erro"),
+    @NamedQuery(name = "MensagemErro.findByMensagem", query = "SELECT m FROM MensagemErro m WHERE m.mensagem = :mensagem")})
+public class MensagemErro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "de")
-    private String de;
-//    @OneToMany(mappedBy = "idClasseGramatical")
-//    private Collection<Palavra> palavraCollection;
+    @Column(name = "erro")
+    private String erro;
+    @Column(name = "mensagem")
+    private String mensagem;
+    @JoinColumn(name = "id_gramatica", referencedColumnName = "id")
+    @ManyToOne
+    private Gramatica idGramatica;
 
-    public ClasseGramatical() {
+    public MensagemErro() {
     }
 
-    public ClasseGramatical(Integer id) {
+    public MensagemErro(Integer id) {
         this.id = id;
-    }
-
-    public ClasseGramatical(Integer id, String de) {
-        this.id = id;
-        this.de = de;
     }
 
     public Integer getId() {
@@ -65,22 +62,29 @@ public class ClasseGramatical implements Serializable {
         this.id = id;
     }
 
-    public String getDe() {
-        return de;
+    public String getErro() {
+        return erro;
     }
 
-    public void setDe(String de) {
-        this.de = de;
+    public void setErro(String erro) {
+        this.erro = erro;
     }
 
-//    @XmlTransient
-//    public Collection<Palavra> getPalavraCollection() {
-//        return palavraCollection;
-//    }
-//
-//    public void setPalavraCollection(Collection<Palavra> palavraCollection) {
-//        this.palavraCollection = palavraCollection;
-//    }
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public Gramatica getIdGramatica() {
+        return idGramatica;
+    }
+
+    public void setIdGramatica(Gramatica idGramatica) {
+        this.idGramatica = idGramatica;
+    }
 
     @Override
     public int hashCode() {
@@ -92,10 +96,10 @@ public class ClasseGramatical implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ClasseGramatical)) {
+        if (!(object instanceof MensagemErro)) {
             return false;
         }
-        ClasseGramatical other = (ClasseGramatical) object;
+        MensagemErro other = (MensagemErro) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -104,7 +108,7 @@ public class ClasseGramatical implements Serializable {
 
     @Override
     public String toString() {
-        return de;
+        return "entity.tools.MensagemErro[ id=" + id + " ]";
     }
     
 }

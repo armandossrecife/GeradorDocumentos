@@ -4,23 +4,23 @@ import dados.DAO.DAO;
 import dados.DAO.DicionarioDAO;
 import dados.DAO.JPAUtil;
 import controle.analiseTexto.AnalisePeriodo;
-import entidades.tools.ClasseGramatical;
-import entidades.DadoRadical;
-import entidades.Dados;
-import entidades.Isr;
-import entidades.Lemma;
-import entidades.Palavra;
-import entidades.Projeto;
-import entidades.Radical;
-import entidades.Referencia;
-import entidades.tools.StopWords;
-import entidades.Tabela;
-import entidades.Acao;
-import entidades.Atributo;
-import entidades.CasoDeUso;
-import entidades.Conceito;
-import entidades.tools.Sinonimo;
-import entidades.SinonimoDominio;
+import entidades.entity.tools.ClasseGramatical;
+import entidades.entity.DadoRadical;
+import entidades.entity.Dados;
+import entidades.entity.Isr;
+import entidades.entity.Lemma;
+import entidades.entity.Palavra;
+import entidades.entity.Projeto;
+import entidades.entity.Radical;
+import entidades.entity.Referencia;
+import entidades.entity.tools.StopWords;
+import entidades.entity.Tabela;
+import entidades.entity.Acao;
+import entidades.entity.Atributo;
+import entidades.entity.CasoDeUso;
+import entidades.entity.Conceito;
+import entidades.entity.tools.Sinonimo;
+import entidades.entity.SinonimoDominio;
 import controle.grammar.SrsGrammarLexer;
 import controle.grammar.SrsGrammarParser;
 import java.io.File;
@@ -943,7 +943,7 @@ public class Dicionario {
         return retorno;
     }
 
-    public void agruparSinonimos(int[] linhasSelecionadas, int numeroPrimeiraLinha, java.util.List<entidades.Conceito> listaSelecionada) throws Exception {
+    public void agruparSinonimos(int[] linhasSelecionadas, int numeroPrimeiraLinha, java.util.List<entidades.entity.Conceito> listaSelecionada) throws Exception {
         Conceito c1 = (Conceito) listaSelecionada.get(numeroPrimeiraLinha);
         String sinonimo = c1.getNomeLemma();
 
@@ -997,7 +997,7 @@ public class Dicionario {
         }
     }
 
-    public void desAgruparSinonimos(int[] linhasSelecionadas, int numeroPrimeiraLinha, java.util.List<entidades.Conceito> listaSelecionada) throws Exception {
+    public void desAgruparSinonimos(int[] linhasSelecionadas, int numeroPrimeiraLinha, java.util.List<entidades.entity.Conceito> listaSelecionada) throws Exception {
         Conceito c1 = (Conceito) listaSelecionada.get(numeroPrimeiraLinha);
         String sinonimo = c1.getNomeLemma();
 

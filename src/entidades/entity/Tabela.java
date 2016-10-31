@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades;
+package entidades.entity;
 //CUIDADO AO ATUALIZAR ESSA CLASSE, ELA TEM O MÉTODO EQUALS CONFIGURADO!
 
 import java.beans.PropertyChangeListener;

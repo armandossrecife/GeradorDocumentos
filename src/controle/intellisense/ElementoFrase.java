@@ -5,7 +5,7 @@
  */
 package controle.intellisense;
 
-import entidades.Tabela;
+import entidades.entity.Tabela;
 import java.util.ArrayList;
 
 /**

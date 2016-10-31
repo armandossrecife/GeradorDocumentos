@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades.tools;
+
+package entidades.entity.tools;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,21 +16,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author helcio.soares
  */
 @Entity
-@Table(name = "tipo_conceito")
+@Table(name = "verbo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoConceito.findAll", query = "SELECT t FROM TipoConceito t"),
-    @NamedQuery(name = "TipoConceito.findById", query = "SELECT t FROM TipoConceito t WHERE t.id = :id"),
-    @NamedQuery(name = "TipoConceito.findByDe", query = "SELECT t FROM TipoConceito t WHERE t.de = :de")})
-public class TipoConceito implements Serializable {
+    @NamedQuery(name = "Verbo.findAll", query = "SELECT v FROM Verbo v"),
+    @NamedQuery(name = "Verbo.findById", query = "SELECT v FROM Verbo v WHERE v.id = :id"),
+    @NamedQuery(name = "Verbo.findByDe", query = "SELECT v FROM Verbo v WHERE v.de = :de"),
+    @NamedQuery(name = "Verbo.findByProx", query = "SELECT v FROM Verbo v WHERE v.prox = :prox")})
+public class Verbo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,11 +42,17 @@ public class TipoConceito implements Serializable {
     private Integer id;
     @Column(name = "de")
     private String de;
+    @Column(name = "prox")
+    private String prox;
+//    @OneToMany(mappedBy = "idVerbo")
+//    private Collection<Proximo> proximoCollection;
+//    @OneToMany(mappedBy = "idVerbo")
+//    private Collection<Sinonimo> sinonimoCollection;
 
-    public TipoConceito() {
+    public Verbo() {
     }
 
-    public TipoConceito(Integer id) {
+    public Verbo(Integer id) {
         this.id = id;
     }
 
@@ -61,6 +72,32 @@ public class TipoConceito implements Serializable {
         this.de = de;
     }
 
+    public String getProx() {
+        return prox;
+    }
+
+    public void setProx(String prox) {
+        this.prox = prox;
+    }
+
+//    @XmlTransient
+//    public Collection<Proximo> getProximoCollection() {
+//        return proximoCollection;
+//    }
+//
+//    public void setProximoCollection(Collection<Proximo> proximoCollection) {
+//        this.proximoCollection = proximoCollection;
+//    }
+//
+//    @XmlTransient
+//    public Collection<Sinonimo> getSinonimoCollection() {
+//        return sinonimoCollection;
+//    }
+//
+//    public void setSinonimoCollection(Collection<Sinonimo> sinonimoCollection) {
+//        this.sinonimoCollection = sinonimoCollection;
+//    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -71,10 +108,10 @@ public class TipoConceito implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoConceito)) {
+        if (!(object instanceof Verbo)) {
             return false;
         }
-        TipoConceito other = (TipoConceito) object;
+        Verbo other = (Verbo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -83,7 +120,7 @@ public class TipoConceito implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.tools.TipoConceito[ id=" + id + " ]";
+        return "entity.tools.Verbo[ id=" + id + " ]";
     }
     
 }

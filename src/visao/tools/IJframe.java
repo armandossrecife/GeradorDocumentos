@@ -5,7 +5,7 @@
  */
 package visao.tools;
 
-import entidades.Projeto;
+import entidades.entity.Projeto;
 import javax.swing.text.JTextComponent;
 
 /**

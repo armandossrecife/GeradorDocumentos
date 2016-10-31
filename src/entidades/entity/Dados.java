@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades;
+package entidades.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "dado_radical")
+@Table(name = "dados")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DadoRadical.findAll", query = "SELECT d FROM DadoRadical d"),
-    @NamedQuery(name = "DadoRadical.findById", query = "SELECT d FROM DadoRadical d WHERE d.id = :id"),
-    @NamedQuery(name = "DadoRadical.findByF", query = "SELECT d FROM DadoRadical d WHERE d.f = :f"),
-    @NamedQuery(name = "DadoRadical.findByRf", query = "SELECT d FROM DadoRadical d WHERE d.rf = :rf"),
-    @NamedQuery(name = "DadoRadical.findByIdf", query = "SELECT d FROM DadoRadical d WHERE d.idf = :idf")})
-public class DadoRadical implements Serializable {
+    @NamedQuery(name = "Dados.findAll", query = "SELECT d FROM Dados d"),
+    @NamedQuery(name = "Dados.findById", query = "SELECT d FROM Dados d WHERE d.id = :id"),
+    @NamedQuery(name = "Dados.findByF", query = "SELECT d FROM Dados d WHERE d.f = :f"),
+    @NamedQuery(name = "Dados.findByRf", query = "SELECT d FROM Dados d WHERE d.rf = :rf"),
+    @NamedQuery(name = "Dados.findByIdf", query = "SELECT d FROM Dados d WHERE d.idf = :idf")})
+public class Dados implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -51,18 +51,20 @@ public class DadoRadical implements Serializable {
     @JoinColumn(name = "id_projeto", referencedColumnName = "id")
     @ManyToOne
     private Projeto idProjeto;
+    @JoinColumn(name = "id_palavra", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Palavra idPalavra;
     @JoinColumn(name = "id_radical", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Radical idRadical;
     @JoinColumn(name = "id_referencia", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Referencia idReferencia;
-
     @Basic(optional = false)
     @Column(name = "qtd_doc")
     private int qtdDoc;
 
-    public DadoRadical() {
+    public Dados() {
     }
 
     public int getQtdDoc() {
@@ -73,7 +75,7 @@ public class DadoRadical implements Serializable {
         this.qtdDoc = qtdDoc;
     }
 
-    public DadoRadical(Integer id) {
+    public Dados(Integer id) {
         this.id = id;
     }
 
@@ -117,6 +119,14 @@ public class DadoRadical implements Serializable {
         this.idProjeto = idProjeto;
     }
 
+    public Palavra getIdPalavra() {
+        return idPalavra;
+    }
+
+    public void setIdPalavra(Palavra idPalavra) {
+        this.idPalavra = idPalavra;
+    }
+
     public Radical getIdRadical() {
         return idRadical;
     }
@@ -140,6 +150,21 @@ public class DadoRadical implements Serializable {
         return hash;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Dados other = (Dados) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
     public boolean igual(Object obj) {
         if (obj == null) {
             return false;
@@ -147,10 +172,7 @@ public class DadoRadical implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final DadoRadical other = (DadoRadical) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
+        final Dados other = (Dados) obj;
         if (!Objects.equals(this.f, other.f)) {
             return false;
         }
@@ -160,32 +182,24 @@ public class DadoRadical implements Serializable {
         if (!Objects.equals(this.idf, other.idf)) {
             return false;
         }
-        if (!Objects.equals(this.idProjeto, other.idProjeto)) {
-            return false;
-        }
-        if (!Objects.equals(this.idReferencia, other.idReferencia)) {
-            return false;
-        }
         if (this.qtdDoc != other.qtdDoc) {
             return false;
         }
         return true;
     }
 
-    public DadoRadical merge(Object obj) {
-        final DadoRadical other = (DadoRadical) obj;
+    public Dados merge(Dados obj) {
+        final Dados other = (Dados) obj;
         this.f = other.f;
         this.rf = other.rf;
-        this.qtdDoc = other.qtdDoc;
         this.idf = other.idf;
-        this.idProjeto = other.idProjeto;
-        this.idReferencia = other.idReferencia;
+        this.qtdDoc = other.qtdDoc;
         return this;
     }
 
     @Override
     public String toString() {
-        return "id = " + id + idRadical.getDe();
+        return "id=" + id + "palavra " + idPalavra.getDe();
     }
 
 }

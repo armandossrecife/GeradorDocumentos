@@ -7,10 +7,10 @@ package visao.view;
 
 import dados.DAO.DicionarioDAO;
 import visao.tools.IJframe;
-import entidades.Projeto;
+import entidades.entity.Projeto;
 import visao.view.JTable.CustomRenderer;
 import visao.view.SRSJTree.Root;
-import entidades.Conceito;
+import entidades.entity.Conceito;
 import controle.intellisense.AbstractParser;
 import controle.intellisense.IntellisenseListener;
 import controle.intellisense.ParserDescricaoCasoDeUso;
@@ -363,7 +363,7 @@ public class CasoDeUsoView extends JPanel implements IJframe {
     private javax.swing.JEditorPane jTextPane2;
     private javax.swing.JEditorPane jTextPane3;
     private javax.swing.JEditorPane jTextPane4;
-    private java.util.List<entidades.CasoDeUso> list;
+    private java.util.List<entidades.entity.CasoDeUso> list;
     private javax.swing.JTable masterTable;
     public static javax.swing.JTextField nomeAtor;
     private javax.swing.JTextField nomeField;
@@ -439,7 +439,7 @@ public class CasoDeUsoView extends JPanel implements IJframe {
 
     @Override
     public void incluir() {
-        entidades.CasoDeUso t = new entidades.CasoDeUso();
+        entidades.entity.CasoDeUso t = new entidades.entity.CasoDeUso();
         t.setIdProjeto(this.projeto);
         entityManager.persist(t);
         list.add(t);
@@ -455,7 +455,7 @@ public class CasoDeUsoView extends JPanel implements IJframe {
         }
 
         int[] selected = masterTable.getSelectedRows();
-        entidades.CasoDeUso t1 = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.CasoDeUso t1 = list.get(masterTable.convertRowIndexToModel(selected[0]));
 
         t1.setFluxoAlternativo(FluxoCasoDeUsoView.fluxoAlternativo.getText());
         t1.setFluxoExcecao(FluxoCasoDeUsoView.fluxoExcecao.getText());
@@ -509,7 +509,7 @@ public class CasoDeUsoView extends JPanel implements IJframe {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entidades.CasoDeUso t = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.CasoDeUso t = list.get(masterTable.convertRowIndexToModel(selected[0]));
         try {
 
             int resultado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar o caso de uso " + nomeField.getText()+"?"
@@ -538,7 +538,7 @@ public class CasoDeUsoView extends JPanel implements IJframe {
 
     private void validar() {
         for (int i = 0; i <= list.size() - 1; i++) {
-            entidades.CasoDeUso t1 = list.get(i);
+            entidades.entity.CasoDeUso t1 = list.get(i);
             masterTable.setRowSelectionInterval(i, i);
             masterTable.scrollRectToVisible(masterTable.getCellRect(i, 0, true));
             validarSentenca();

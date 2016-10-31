@@ -9,9 +9,9 @@ import dados.DAO.DicionarioDAO;
 import visao.view.JTable.CustomRenderer;
 import visao.view.SRSJTree.Root;
 import controle.dicionario.Dicionario;
-import entidades.Conceito;
-import entidades.Projeto;
-import entidades.Tabela;
+import entidades.entity.Conceito;
+import entidades.entity.Projeto;
+import entidades.entity.Tabela;
 import controle.etiquetador.Etiquetador;
 import controle.intellisense.AbstractParser;
 import controle.intellisense.IntellisenseListener;
@@ -278,7 +278,7 @@ public class TabelaView extends JPanel implements IJframe {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private java.util.List<entidades.Tabela> list;
+    private java.util.List<entidades.entity.Tabela> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JTextField nomeField;
@@ -389,7 +389,7 @@ public class TabelaView extends JPanel implements IJframe {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entidades.Tabela t = new entidades.Tabela();
+        entidades.entity.Tabela t = new entidades.entity.Tabela();
         t.setIdProjeto(this.projeto);
         t.setIdTipoTabela(idTipoTabela);
         entityManager.persist(t);
@@ -405,7 +405,7 @@ public class TabelaView extends JPanel implements IJframe {
             entityManager.getTransaction().begin();
         }
         int[] selected = masterTable.getSelectedRows();
-        entidades.Tabela t1 = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.Tabela t1 = list.get(masterTable.convertRowIndexToModel(selected[0]));
         String lemma = null;
         try {
             lemma = Constante.recuperarLemmaDaPalavra(nomeField.getText());
@@ -453,7 +453,7 @@ public class TabelaView extends JPanel implements IJframe {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entidades.Tabela t = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.Tabela t = list.get(masterTable.convertRowIndexToModel(selected[0]));
         try {
             int resultado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar o registro " + nomeField.getText() + "?", "Alerta!", JOptionPane.YES_NO_OPTION);
             if (resultado == JOptionPane.YES_OPTION) {
@@ -484,7 +484,7 @@ public class TabelaView extends JPanel implements IJframe {
             c = c.getParent();
         }
         for (int i = 0; i <= list.size() - 1; i++) {
-            entidades.Tabela t1 = list.get(i);
+            entidades.entity.Tabela t1 = list.get(i);
             masterTable.setRowSelectionInterval(i, i);
             masterTable.scrollRectToVisible(masterTable.getCellRect(i, 0, true));
             validarSentenca();

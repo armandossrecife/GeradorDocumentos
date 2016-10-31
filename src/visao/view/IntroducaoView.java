@@ -7,8 +7,8 @@ package visao.view;
 
 import visao.view.SRSTextArea.TextAreaTools;
 import visao.tools.IJframe;
-import entidades.Introducao;
-import entidades.Projeto;
+import entidades.entity.Introducao;
+import entidades.entity.Projeto;
 import java.awt.Component;
 import javax.persistence.RollbackException;
 import javax.swing.event.UndoableEditEvent;
@@ -200,7 +200,7 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextArea escopoField;
-    private java.util.List<entidades.Introducao> introducaoList;
+    private java.util.List<entidades.entity.Introducao> introducaoList;
     private javax.persistence.Query introducaoQuery;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -257,7 +257,7 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
 
     @Override
     public void incluir() {
-        entidades.Tabela t = new entidades.Tabela();
+        entidades.entity.Tabela t = new entidades.entity.Tabela();
         entityManager.getTransaction().begin();
         entityManager.persist(t);
     }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package entidades.tools;
+package entidades.entity.tools;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,14 +25,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "tipo_tabela")
+@Table(name = "elemento_de_interface")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoTabela.findAll", query = "SELECT t FROM TipoTabela t"),
-    @NamedQuery(name = "TipoTabela.findById", query = "SELECT t FROM TipoTabela t WHERE t.id = :id"),
-    @NamedQuery(name = "TipoTabela.findByDe", query = "SELECT t FROM TipoTabela t WHERE t.de = :de"),
-    @NamedQuery(name = "TipoTabela.findByCarregaArvore", query = "SELECT t FROM TipoTabela t WHERE t.carregaArvore = :carregaArvore")})
-public class TipoTabela implements Serializable {
+    @NamedQuery(name = "ElementoDeInterface.findAll", query = "SELECT e FROM ElementoDeInterface e"),
+    @NamedQuery(name = "ElementoDeInterface.findById", query = "SELECT e FROM ElementoDeInterface e WHERE e.id = :id"),
+    @NamedQuery(name = "ElementoDeInterface.findByDe", query = "SELECT e FROM ElementoDeInterface e WHERE e.de = :de")})
+public class ElementoDeInterface implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,13 +40,14 @@ public class TipoTabela implements Serializable {
     private Integer id;
     @Column(name = "de")
     private String de;
-    @Column(name = "carrega_arvore")
-    private Integer carregaArvore;
+    @JoinColumn(name = "tipo", referencedColumnName = "id")
+    @ManyToOne
+    private TipoElementoInterface tipo;
 
-    public TipoTabela() {
+    public ElementoDeInterface() {
     }
 
-    public TipoTabela(Integer id) {
+    public ElementoDeInterface(Integer id) {
         this.id = id;
     }
 
@@ -65,12 +67,12 @@ public class TipoTabela implements Serializable {
         this.de = de;
     }
 
-    public Integer getCarregaArvore() {
-        return carregaArvore;
+    public TipoElementoInterface getTipo() {
+        return tipo;
     }
 
-    public void setCarregaArvore(Integer carregaArvore) {
-        this.carregaArvore = carregaArvore;
+    public void setTipo(TipoElementoInterface tipo) {
+        this.tipo = tipo;
     }
 
     @Override
@@ -83,10 +85,10 @@ public class TipoTabela implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoTabela)) {
+        if (!(object instanceof ElementoDeInterface)) {
             return false;
         }
-        TipoTabela other = (TipoTabela) object;
+        ElementoDeInterface other = (ElementoDeInterface) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -95,7 +97,7 @@ public class TipoTabela implements Serializable {
 
     @Override
     public String toString() {
-        return getDe();
+        return "entity.ElementoDeInterface[ id=" + id + " ]";
     }
     
 }

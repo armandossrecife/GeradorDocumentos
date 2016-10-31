@@ -10,9 +10,9 @@ import dados.DAO.DicionarioDAO;
 import visao.view.JTable.CustomRendererTableDicionario;
 import visao.view.JTable.CustomRendererTableSinonimos;
 import controle.dicionario.Dicionario;
-import entidades.Projeto;
-import entidades.Conceito;
-import entidades.SinonimoDominio;
+import entidades.entity.Projeto;
+import entidades.entity.Conceito;
+import entidades.entity.SinonimoDominio;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,7 +53,7 @@ public class SinonimoView extends javax.swing.JDialog {
     private JMenuItem desagrupar;
     CustomRendererTableSinonimos cr;
     int linhas[] = {0};
-    java.util.List<entidades.Conceito> listaSelecionada;
+    java.util.List<entidades.entity.Conceito> listaSelecionada;
     private SinonimoAdd sinonimoAdd;
 
     /**
@@ -276,8 +276,8 @@ public class SinonimoView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager SRSEDITORPUEntityManager;
-    private java.util.List<entidades.Conceito> conceitoList;
-    private java.util.List<entidades.Conceito> conceitoList1;
+    private java.util.List<entidades.entity.Conceito> conceitoList;
+    private java.util.List<entidades.entity.Conceito> conceitoList1;
     private javax.persistence.Query conceitoQuery;
     private javax.persistence.Query conceitoQuery1;
     private javax.swing.JPopupMenu jPopupMenu1;
@@ -287,7 +287,7 @@ public class SinonimoView extends javax.swing.JDialog {
     private javax.swing.JTable jTableAcoes;
     private javax.swing.JTable jTableConceito;
     private javax.swing.JTable jTableSinonimosDominio;
-    private java.util.List<entidades.SinonimoDominio> sinonimoDominioList;
+    private java.util.List<entidades.entity.SinonimoDominio> sinonimoDominioList;
     private javax.persistence.Query sinonimoDominioQuery;
     // End of variables declaration//GEN-END:variables
 

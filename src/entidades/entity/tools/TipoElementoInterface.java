@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades;
 
+package entidades.entity.tools;
+
+import entidades.entity.tools.ElementoDeInterface;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -25,33 +25,27 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "lemma")
+@Table(name = "tipo_elemento_interface")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Lemma.findAll", query = "SELECT l FROM Lemma l"),
-    @NamedQuery(name = "Lemma.findById", query = "SELECT l FROM Lemma l WHERE l.id = :id"),
-    @NamedQuery(name = "Lemma.findByDe", query = "SELECT l FROM Lemma l WHERE l.de = :de")})
-public class Lemma implements Serializable {
+    @NamedQuery(name = "TipoElementoInterface.findAll", query = "SELECT t FROM TipoElementoInterface t"),
+    @NamedQuery(name = "TipoElementoInterface.findById", query = "SELECT t FROM TipoElementoInterface t WHERE t.id = :id"),
+    @NamedQuery(name = "TipoElementoInterface.findByDe", query = "SELECT t FROM TipoElementoInterface t WHERE t.de = :de")})
+public class TipoElementoInterface implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
     @Column(name = "de")
     private String de;
-//    @OneToMany(mappedBy = "idLemma")
-//    private Collection<Palavra> palavraCollection;
+//    @OneToMany(mappedBy = "tipo")
+//    private Collection<ElementoDeInterface> elementoDeInterfaceCollection;
 
-    public Lemma() {
+    public TipoElementoInterface() {
     }
 
-    public Lemma(Integer id, String de) {
-        this.id = id;
-        this.de = de;
-    }
-
-    public Lemma(Integer id) {
+    public TipoElementoInterface(Integer id) {
         this.id = id;
     }
 
@@ -72,12 +66,12 @@ public class Lemma implements Serializable {
     }
 
 //    @XmlTransient
-//    public Collection<Palavra> getPalavraCollection() {
-//        return palavraCollection;
+//    public Collection<ElementoDeInterface> getElementoDeInterfaceCollection() {
+//        return elementoDeInterfaceCollection;
 //    }
 //
-//    public void setPalavraCollection(Collection<Palavra> palavraCollection) {
-//        this.palavraCollection = palavraCollection;
+//    public void setElementoDeInterfaceCollection(Collection<ElementoDeInterface> elementoDeInterfaceCollection) {
+//        this.elementoDeInterfaceCollection = elementoDeInterfaceCollection;
 //    }
 
     @Override
@@ -90,10 +84,10 @@ public class Lemma implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Lemma)) {
+        if (!(object instanceof TipoElementoInterface)) {
             return false;
         }
-        Lemma other = (Lemma) object;
+        TipoElementoInterface other = (TipoElementoInterface) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -102,7 +96,7 @@ public class Lemma implements Serializable {
 
     @Override
     public String toString() {
-        return de;
+        return "entity.TipoElementoInterface[ id=" + id + " ]";
     }
     
 }

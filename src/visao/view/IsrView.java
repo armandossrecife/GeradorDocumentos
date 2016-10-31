@@ -8,8 +8,8 @@ package visao.view;
 import dados.DAO.DicionarioDAO;
 import visao.view.JTable.CustomRenderer;
 import visao.view.SRSJTree.Root;
-import entidades.Conceito;
-import entidades.Projeto;
+import entidades.entity.Conceito;
+import entidades.entity.Projeto;
 import controle.intellisense.ParserIsr;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -35,7 +35,7 @@ import visao.tools.IJframe;
 public class IsrView extends JPanel implements IJframe {
 
     private Projeto projeto;
-    private entidades.Isr t;
+    private entidades.entity.Isr t;
     private String sentencaAnterior;
 
     public IsrView() {
@@ -258,7 +258,7 @@ public class IsrView extends JPanel implements IJframe {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.util.List<entidades.Isr> list;
+    private java.util.List<entidades.entity.Isr> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JTextField nomeField;
@@ -323,7 +323,7 @@ public class IsrView extends JPanel implements IJframe {
     @Override
     public void validarSentenca() {
         try {
-            entidades.Isr isr = getSelectedIsr();
+            entidades.entity.Isr isr = getSelectedIsr();
             ParserIsr parserIsr = new ParserIsr(projeto, isr);
             String sentenca = dadosArea.getText();
             Root raiz = parserIsr.validarAtributos(sentenca);
@@ -340,7 +340,7 @@ public class IsrView extends JPanel implements IJframe {
 
     @Override
     public void incluir() {
-        t = new entidades.Isr();
+        t = new entidades.entity.Isr();
         t.setIdProjeto(this.projeto);
         entityManager.persist(t);
         list.add(t);
@@ -351,7 +351,7 @@ public class IsrView extends JPanel implements IJframe {
 
     @Override
     public void salvar() {
-        entidades.Isr t1 = getSelectedIsr();
+        entidades.entity.Isr t1 = getSelectedIsr();
         String lemma = null;
         try {
             lemma = Constante.recuperarLemmaDaPalavra(nomeField.getText());
@@ -380,7 +380,7 @@ public class IsrView extends JPanel implements IJframe {
         }
     }
 
-    private entidades.Isr getSelectedIsr() {
+    private entidades.entity.Isr getSelectedIsr() {
         int[] selected = masterTable.getSelectedRows();
         return list.get(masterTable.convertRowIndexToModel(selected[0]));
     }
@@ -407,7 +407,7 @@ public class IsrView extends JPanel implements IJframe {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entidades.Isr t = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.Isr t = list.get(masterTable.convertRowIndexToModel(selected[0]));
         try {
             int resultado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar o Requisito de armazenamento " + nomeField.getText()+"?", "Alerta!", JOptionPane.YES_NO_OPTION);
             if (resultado == JOptionPane.YES_OPTION) {
@@ -438,7 +438,7 @@ public class IsrView extends JPanel implements IJframe {
 
     private void validar() {
         for (int i = 0; i <= list.size() - 1; i++) {
-            entidades.Isr t1 = list.get(i);
+            entidades.entity.Isr t1 = list.get(i);
             masterTable.setRowSelectionInterval(i, i);
             masterTable.scrollRectToVisible(masterTable.getCellRect(i, 0, true));
             validarSentenca();

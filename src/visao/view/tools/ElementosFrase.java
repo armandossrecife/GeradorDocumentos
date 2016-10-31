@@ -6,7 +6,7 @@
 package visao.view.tools;
 
 import dados.DAO.DAO;
-import entidades.SinonimoDominio;
+import entidades.entity.SinonimoDominio;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

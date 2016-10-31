@@ -264,9 +264,9 @@ public class NewMasterDetailForm extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<entidades.Conceito> toRemove = new ArrayList<entidades.Conceito>(selected.length);
+        List<entidades.entity.Conceito> toRemove = new ArrayList<entidades.entity.Conceito>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            entidades.Conceito c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            entidades.entity.Conceito c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(c);
             entityManager.remove(c);
         }
@@ -274,7 +274,7 @@ public class NewMasterDetailForm extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        entidades.Conceito c = new entidades.Conceito();
+        entidades.entity.Conceito c = new entidades.entity.Conceito();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -289,8 +289,8 @@ public class NewMasterDetailForm extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<entidades.Conceito> merged = new ArrayList<entidades.Conceito>(list.size());
-            for (entidades.Conceito c : list) {
+            List<entidades.entity.Conceito> merged = new ArrayList<entidades.entity.Conceito>(list.size());
+            for (entidades.entity.Conceito c : list) {
                 merged.add(entityManager.merge(c));
             }
             list.clear();
@@ -312,7 +312,7 @@ public class NewMasterDetailForm extends JPanel {
     private javax.swing.JLabel idProjetoLabel;
     private javax.swing.JTextField idTipoConceitoField;
     private javax.swing.JLabel idTipoConceitoLabel;
-    private java.util.List<entidades.Conceito> list;
+    private java.util.List<entidades.entity.Conceito> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

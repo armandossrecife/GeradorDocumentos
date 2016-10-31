@@ -1,6 +1,6 @@
 package dados.DAO;
 
-import entidades.Projeto;
+import entidades.entity.Projeto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

@@ -5,8 +5,8 @@
  */
 package visao.view.SRSJTree;
 
-import entidades.Tabela;
-import entidades.tools.TipoTabela;
+import entidades.entity.Tabela;
+import entidades.entity.tools.TipoTabela;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;

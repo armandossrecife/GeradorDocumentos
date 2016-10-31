@@ -3,32 +3,32 @@
   <persistence-unit name="SRSEDITORPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.Proximo</class>
-    <class>entidades.tools.Gramatica</class>
-    <class>entidades.tools.TipoElementoInterface</class>
-    <class>entidades.tools.TipoConceito</class>
-    <class>entidades.tools.MensagemErro</class>
-    <class>entidades.tools.StopWords</class>
-    <class>entidades.tools.Proximo</class>
-    <class>entidades.tools.Verbo</class>
-    <class>entidades.tools.ClasseGramatical</class>
-    <class>entidades.tools.Sinonimo</class>
-    <class>entidades.tools.ElementoDeInterface</class>
-    <class>entidades.tools.TipoTabela</class>
-    <class>entidades.Lemma</class>
-    <class>entidades.Radical</class>
-    <class>entidades.Tabela</class>
-    <class>entidades.Isr</class>
-    <class>entidades.SinonimoDominio</class>
-    <class>entidades.Acao</class>
-    <class>entidades.Atributo</class>
-    <class>entidades.CasoDeUso</class>
-    <class>entidades.Palavra</class>
-    <class>entidades.Dados</class>
-    <class>entidades.Conceito</class>
-    <class>entidades.Introducao</class>
-    <class>entidades.Referencia</class>
-    <class>entidades.DadoRadical</class>
-    <class>entidades.Projeto</class>
+    <class>entidades.entity.Introducao</class>
+    <class>entidades.entity.Isr</class>
+    <class>entidades.entity.Acao</class>
+    <class>entidades.entity.DadoRadical</class>
+    <class>entidades.entity.Referencia</class>
+    <class>entidades.entity.Dados</class>
+    <class>entidades.entity.Conceito</class>
+    <class>entidades.entity.CasoDeUso</class>
+    <class>entidades.entity.Projeto</class>
+    <class>entidades.entity.SinonimoDominio</class>
+    <class>entidades.entity.Atributo</class>
+    <class>entidades.entity.Radical</class>
+    <class>entidades.entity.Tabela</class>
+    <class>entidades.entity.Lemma</class>
+    <class>entidades.entity.Palavra</class>
+    <class>entidades.entity.tools.StopWords</class>
+    <class>entidades.entity.tools.ElementoDeInterface</class>
+    <class>entidades.entity.tools.TipoConceito</class>
+    <class>entidades.entity.tools.TipoTabela</class>
+    <class>entidades.entity.tools.TipoElementoInterface</class>
+    <class>entidades.entity.tools.MensagemErro</class>
+    <class>entidades.entity.tools.Verbo</class>
+    <class>entidades.entity.tools.Proximo</class>
+    <class>entidades.entity.tools.Sinonimo</class>
+    <class>entidades.entity.tools.ClasseGramatical</class>
+    <class>entidades.entity.tools.Gramatica</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/srs?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

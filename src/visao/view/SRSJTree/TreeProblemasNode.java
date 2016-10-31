@@ -5,7 +5,7 @@
  */
 package visao.view.SRSJTree;
 
-import entidades.BaseEntity;
+import entidades.entity.BaseEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.tree.DefaultMutableTreeNode;

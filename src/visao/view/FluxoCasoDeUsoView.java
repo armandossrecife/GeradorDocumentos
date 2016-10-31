@@ -5,7 +5,7 @@
  */
 package visao.view;
 
-import entidades.CasoDeUso;
+import entidades.entity.CasoDeUso;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JEditorPane;

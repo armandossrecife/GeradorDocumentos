@@ -3,35 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package entidades.tools;
+package entidades.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author helcio.soares
  */
 @Entity
-@Table(name = "sinonimo")
+@Table(name = "lemma")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Sinonimo.findAll", query = "SELECT s FROM Sinonimo s"),
-    @NamedQuery(name = "Sinonimo.findById", query = "SELECT s FROM Sinonimo s WHERE s.id = :id"),
-    @NamedQuery(name = "Sinonimo.findByDe", query = "SELECT s FROM Sinonimo s WHERE s.de = :de")})
-public class Sinonimo implements Serializable {
+    @NamedQuery(name = "Lemma.findAll", query = "SELECT l FROM Lemma l"),
+    @NamedQuery(name = "Lemma.findById", query = "SELECT l FROM Lemma l WHERE l.id = :id"),
+    @NamedQuery(name = "Lemma.findByDe", query = "SELECT l FROM Lemma l WHERE l.de = :de")})
+public class Lemma implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,14 +40,18 @@ public class Sinonimo implements Serializable {
     private Integer id;
     @Column(name = "de")
     private String de;
-    @JoinColumn(name = "id_verbo", referencedColumnName = "id")
-    @ManyToOne
-    private Verbo idVerbo;
+//    @OneToMany(mappedBy = "idLemma")
+//    private Collection<Palavra> palavraCollection;
 
-    public Sinonimo() {
+    public Lemma() {
     }
 
-    public Sinonimo(Integer id) {
+    public Lemma(Integer id, String de) {
+        this.id = id;
+        this.de = de;
+    }
+
+    public Lemma(Integer id) {
         this.id = id;
     }
 
@@ -67,13 +71,14 @@ public class Sinonimo implements Serializable {
         this.de = de;
     }
 
-    public Verbo getIdVerbo() {
-        return idVerbo;
-    }
-
-    public void setIdVerbo(Verbo idVerbo) {
-        this.idVerbo = idVerbo;
-    }
+//    @XmlTransient
+//    public Collection<Palavra> getPalavraCollection() {
+//        return palavraCollection;
+//    }
+//
+//    public void setPalavraCollection(Collection<Palavra> palavraCollection) {
+//        this.palavraCollection = palavraCollection;
+//    }
 
     @Override
     public int hashCode() {
@@ -85,10 +90,10 @@ public class Sinonimo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Sinonimo)) {
+        if (!(object instanceof Lemma)) {
             return false;
         }
-        Sinonimo other = (Sinonimo) object;
+        Lemma other = (Lemma) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +102,7 @@ public class Sinonimo implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.tools.Sinonimo[ id=" + id + " ]";
+        return de;
     }
     
 }

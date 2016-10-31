@@ -8,7 +8,7 @@ package controle.analiseTexto;
 import dados.DAO.DAO;
 import controle.UCGrammar.UCGrammarLexer;
 import controle.UCGrammar.UCGrammarParser;
-import entidades.tools.Sinonimo;
+import entidades.entity.tools.Sinonimo;
 import controle.etiquetador.Etiquetador;
 import controle.grammar.SrsGrammarLexer;
 import controle.grammar.SrsGrammarParser;

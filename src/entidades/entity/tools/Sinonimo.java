@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package entidades.tools;
+package entidades.entity.tools;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -25,13 +25,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author helcio.soares
  */
 @Entity
-@Table(name = "elemento_de_interface")
+@Table(name = "sinonimo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ElementoDeInterface.findAll", query = "SELECT e FROM ElementoDeInterface e"),
-    @NamedQuery(name = "ElementoDeInterface.findById", query = "SELECT e FROM ElementoDeInterface e WHERE e.id = :id"),
-    @NamedQuery(name = "ElementoDeInterface.findByDe", query = "SELECT e FROM ElementoDeInterface e WHERE e.de = :de")})
-public class ElementoDeInterface implements Serializable {
+    @NamedQuery(name = "Sinonimo.findAll", query = "SELECT s FROM Sinonimo s"),
+    @NamedQuery(name = "Sinonimo.findById", query = "SELECT s FROM Sinonimo s WHERE s.id = :id"),
+    @NamedQuery(name = "Sinonimo.findByDe", query = "SELECT s FROM Sinonimo s WHERE s.de = :de")})
+public class Sinonimo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,14 +40,14 @@ public class ElementoDeInterface implements Serializable {
     private Integer id;
     @Column(name = "de")
     private String de;
-    @JoinColumn(name = "tipo", referencedColumnName = "id")
+    @JoinColumn(name = "id_verbo", referencedColumnName = "id")
     @ManyToOne
-    private TipoElementoInterface tipo;
+    private Verbo idVerbo;
 
-    public ElementoDeInterface() {
+    public Sinonimo() {
     }
 
-    public ElementoDeInterface(Integer id) {
+    public Sinonimo(Integer id) {
         this.id = id;
     }
 
@@ -67,12 +67,12 @@ public class ElementoDeInterface implements Serializable {
         this.de = de;
     }
 
-    public TipoElementoInterface getTipo() {
-        return tipo;
+    public Verbo getIdVerbo() {
+        return idVerbo;
     }
 
-    public void setTipo(TipoElementoInterface tipo) {
-        this.tipo = tipo;
+    public void setIdVerbo(Verbo idVerbo) {
+        this.idVerbo = idVerbo;
     }
 
     @Override
@@ -85,10 +85,10 @@ public class ElementoDeInterface implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ElementoDeInterface)) {
+        if (!(object instanceof Sinonimo)) {
             return false;
         }
-        ElementoDeInterface other = (ElementoDeInterface) object;
+        Sinonimo other = (Sinonimo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +97,7 @@ public class ElementoDeInterface implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.ElementoDeInterface[ id=" + id + " ]";
+        return "entity.tools.Sinonimo[ id=" + id + " ]";
     }
     
 }

@@ -152,7 +152,7 @@ public class ProjetoView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        entidades.Projeto c = new entidades.Projeto();
+        entidades.entity.Projeto c = new entidades.entity.Projeto();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -166,7 +166,7 @@ public class ProjetoView extends javax.swing.JDialog {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entidades.Projeto t = list.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.entity.Projeto t = list.get(masterTable.convertRowIndexToModel(selected[0]));
         try {
 
             entityManager.remove(entityManager.merge(t));
@@ -185,7 +185,7 @@ public class ProjetoView extends javax.swing.JDialog {
     }//GEN-LAST:event_buttonAdd1ActionPerformed
 
     private void buttonAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdd2ActionPerformed
-        entidades.Projeto t1 = getSelectedProject();
+        entidades.entity.Projeto t1 = getSelectedProject();
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
             entityManager.persist(t1);
@@ -195,7 +195,7 @@ public class ProjetoView extends javax.swing.JDialog {
         entityManager.flush();
         entityManager.getTransaction().commit();
     }//GEN-LAST:event_buttonAdd2ActionPerformed
-    private entidades.Projeto getSelectedProject() {
+    private entidades.entity.Projeto getSelectedProject() {
         int[] selected = masterTable.getSelectedRows();
         int row = selected[0];
         masterTable.setRowSelectionInterval(row, row);
@@ -267,7 +267,7 @@ public class ProjetoView extends javax.swing.JDialog {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JToolBar jToolBar1;
-    private java.util.List<entidades.Projeto> list;
+    private java.util.List<entidades.entity.Projeto> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.persistence.Query query;
