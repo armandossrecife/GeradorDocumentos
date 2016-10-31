@@ -102,9 +102,9 @@ public class Importador {
             String nomeClasse = retornarNomeClasse(arquivo);
             Class classe = null;
             try {
-                classe = Class.forName("entity.tools." + nomeClasse);
+                classe = Class.forName("entidades.entity.tools." + nomeClasse);
             } catch (Exception e) {
-                classe = Class.forName("entity." + nomeClasse);
+                classe = Class.forName("entidades.entity." + nomeClasse);
             }
             System.out.println(nomeClasse);
             importarTabela(".\\importar\\" + arquivo + ".sql", classe);
