@@ -25,7 +25,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;entity.Introducao&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;entidades.Introducao&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>

@@ -7,7 +7,7 @@ package visao.view.tools;
 
 import dados.DAO.DAO;
 import controle.analiseTexto.AnalisePeriodo;
-import entity.Acao;
+import entidades.Acao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

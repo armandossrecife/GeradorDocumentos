@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package visao.view;
 
 import visao.view.SRSTextArea.TextAreaTools;
-import view.tools.IJframe;
-import entity.Introducao;
-import entity.Projeto;
+import visao.tools.IJframe;
+import entidades.Introducao;
+import entidades.Projeto;
 import java.awt.Component;
 import javax.persistence.RollbackException;
 import javax.swing.event.UndoableEditEvent;
@@ -200,7 +200,7 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextArea escopoField;
-    private java.util.List<entity.Introducao> introducaoList;
+    private java.util.List<entidades.Introducao> introducaoList;
     private javax.persistence.Query introducaoQuery;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -257,7 +257,7 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
 
     @Override
     public void incluir() {
-        entity.Tabela t = new entity.Tabela();
+        entidades.Tabela t = new entidades.Tabela();
         entityManager.getTransaction().begin();
         entityManager.persist(t);
     }

@@ -12,11 +12,11 @@ import visao.view.SRSJTree.Root;
 import visao.view.SRSJTree.TreeBuilder;
 import visao.view.SRSJTree.TreeProblemasNode;
 import controle.analiseTexto.AnalisePeriodo;
-import entity.Atributo;
-import entity.Isr;
-import entity.Projeto;
-import entity.Tabela;
-import entity.tools.Sinonimo;
+import entidades.Atributo;
+import entidades.Isr;
+import entidades.Projeto;
+import entidades.Tabela;
+import entidades.tools.Sinonimo;
 import controle.grammar.tools.UnderlineListener;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,9 +32,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import visao.view.tools.Constante;
-import view.CasoDeUsoView;
-import view.Editor;
-import view.FluxoCasoDeUsoView;
+import visao.view.CasoDeUsoView;
+import visao.view.Editor;
+import visao.view.FluxoCasoDeUsoView;
 
 /**
  *

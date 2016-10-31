@@ -5,7 +5,7 @@
  */
 package controle.intellisense;
 
-import entity.Conceito;
+import entidades.Conceito;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;

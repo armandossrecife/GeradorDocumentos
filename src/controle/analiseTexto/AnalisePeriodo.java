@@ -8,7 +8,7 @@ package controle.analiseTexto;
 import dados.DAO.DAO;
 import controle.UCGrammar.UCGrammarLexer;
 import controle.UCGrammar.UCGrammarParser;
-import entity.tools.Sinonimo;
+import entidades.tools.Sinonimo;
 import controle.etiquetador.Etiquetador;
 import controle.grammar.SrsGrammarLexer;
 import controle.grammar.SrsGrammarParser;
@@ -30,7 +30,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 import visao.view.tools.Constante;
 import visao.view.tools.ElementosFrase;
-import view.Editor;
+import visao.view.Editor;
 
 /**
  *

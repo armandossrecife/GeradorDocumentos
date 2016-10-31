@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package visao.view;
 
 import dados.DAO.CriarBanco;
-import view.tools.IJframe;
+import visao.tools.IJframe;
 import dados.DAO.DAO;
 import controle.dicionario.Dicionario;
-import entity.Projeto;
+import entidades.Projeto;
 import visao.view.SRSJTree.TreeExplorarCellRenderer;
 import visao.view.SRSJTree.TreeMenuCellRender;
 import visao.view.SRSJTree.TreeProblemaCellRenderer;
@@ -31,9 +31,9 @@ import visao.view.tools.Constante;
 import visao.view.SRSJTree.TreeTransferHandler;
 import controle.analiseTexto.ClassificadorAtributo;
 import controle.documento.MakeDocSRS;
-import entity.Atributo;
-import entity.Conceito;
-import entity.Tabela;
+import entidades.Atributo;
+import entidades.Conceito;
+import entidades.Tabela;
 import controle.importar.Importador;
 import static controle.intellisense.ParserDescricaoCasoDeUso.novaFrase;
 import java.awt.Color;
@@ -60,7 +60,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import static visao.view.tools.Constante.iniciaTipos;
 
-import view.tools.DicionarioView;
+import visao.tools.DicionarioView;
 
 /**
  *

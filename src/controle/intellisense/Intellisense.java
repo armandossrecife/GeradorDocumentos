@@ -6,7 +6,7 @@
 package controle.intellisense;
 
 import controle.analiseTexto.AnalisePeriodo;
-import entity.Conceito;
+import entidades.Conceito;
 import controle.grammar.tools.UnderlineListener;
 import controle.grammar.tools.VerboseListener;
 import java.awt.Color;

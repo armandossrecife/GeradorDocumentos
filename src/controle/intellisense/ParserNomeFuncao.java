@@ -7,7 +7,7 @@
 package controle.intellisense;
 
 import dados.DAO.DicionarioDAO;
-import entity.Projeto;
+import entidades.Projeto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;

@@ -7,11 +7,11 @@ package controle.sinonimo;
 
 import dados.DAO.DAO;
 import dados.DAO.DicionarioDAO;
-import entity.Lemma;
-import entity.Projeto;
-import entity.Tabela;
-import entity.tools.Sinonimo;
-import entity.tools.Verbo;
+import entidades.Lemma;
+import entidades.Projeto;
+import entidades.Tabela;
+import entidades.tools.Sinonimo;
+import entidades.tools.Verbo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

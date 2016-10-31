@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package visao.view;
 
-import entity.CasoDeUso;
+import entidades.CasoDeUso;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JEditorPane;
@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
-import static view.Editor.jSplitPane3;
+import static visao.view.Editor.jSplitPane3;
 
 /**
  *

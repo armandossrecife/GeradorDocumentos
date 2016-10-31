@@ -7,14 +7,14 @@ package visao.view.SRSJTree;
 
 import dados.DAO.DAO;
 import dados.DAO.DicionarioDAO;
-import entity.Atributo;
-import entity.CasoDeUso;
-import entity.Isr;
-import entity.Projeto;
-import entity.Tabela;
-import entity.Conceito;
-import entity.SinonimoDominio;
-import entity.tools.TipoTabela;
+import entidades.Atributo;
+import entidades.CasoDeUso;
+import entidades.Isr;
+import entidades.Projeto;
+import entidades.Tabela;
+import entidades.Conceito;
+import entidades.SinonimoDominio;
+import entidades.tools.TipoTabela;
 import controle.intellisense.ElementoFrase;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -24,7 +24,7 @@ import java.util.Map;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import visao.view.tools.Constante;
-import view.Editor;
+import visao.view.Editor;
 
 /**
  *

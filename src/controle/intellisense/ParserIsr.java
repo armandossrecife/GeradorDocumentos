@@ -11,9 +11,9 @@ import visao.view.SRSJTree.Root;
 import visao.view.SRSJTree.TreeBuilder;
 import visao.view.SRSJTree.TreeProblemasNode;
 import controle.analiseTexto.AnalisePeriodo;
-import entity.Atributo;
-import entity.Isr;
-import entity.Projeto;
+import entidades.Atributo;
+import entidades.Isr;
+import entidades.Projeto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import org.apache.poi.hssf.record.formula.functions.Irr;
 import visao.view.tools.Constante;
-import view.Editor;
+import visao.view.Editor;
 
 /**
  *

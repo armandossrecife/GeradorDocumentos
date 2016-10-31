@@ -10,8 +10,8 @@ package visao.view.SRSJTree;
  * @author helcio.soares
  */
 import static controle.analiseTexto.AnalisePeriodo.tagger;
-import entity.Tabela;
-import entity.tools.TipoTabela;
+import entidades.Tabela;
+import entidades.tools.TipoTabela;
 import controle.grammar.SrsGrammarParser;
 import java.awt.Component;
 import java.util.Enumeration;

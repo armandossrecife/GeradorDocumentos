@@ -12,14 +12,14 @@ import visao.view.SRSJTree.Root;
 import visao.view.SRSJTree.TreeBuilder;
 import visao.view.SRSJTree.TreeProblemasNode;
 import controle.analiseTexto.AnalisePeriodo;
-import entity.CasoDeUso;
-import entity.Isr;
-import entity.Projeto;
-import entity.tools.StopWords;
-import entity.Tabela;
-import entity.Conceito;
-import entity.tools.MensagemErro;
-import entity.tools.TipoTabela;
+import entidades.CasoDeUso;
+import entidades.Isr;
+import entidades.Projeto;
+import entidades.tools.StopWords;
+import entidades.Tabela;
+import entidades.Conceito;
+import entidades.tools.MensagemErro;
+import entidades.tools.TipoTabela;
 import controle.grammar.SrsGrammarParser;
 import controle.grammar.tools.UnderlineListener;
 import controle.grammar.tools.VerboseListener;
@@ -40,7 +40,7 @@ import org.apache.pdfbox.cos.COSName;
 import org.apache.poi.hssf.record.formula.functions.Char;
 import visao.view.tools.Constante;
 import visao.view.tools.ElementosFrase;
-import view.Editor;
+import visao.view.Editor;
 
 /**
  *

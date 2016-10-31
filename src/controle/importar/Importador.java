@@ -7,8 +7,8 @@ package controle.importar;
 
 import dados.DAO.DAO;
 import dados.DAO.JPAUtil;
-import entity.Projeto;
-import entity.tools.ElementoDeInterface;
+import entidades.Projeto;
+import entidades.tools.ElementoDeInterface;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;

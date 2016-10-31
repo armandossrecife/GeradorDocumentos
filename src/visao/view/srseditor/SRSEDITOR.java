@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import view.Editor;
+import visao.view.Editor;
 
 /**
  *

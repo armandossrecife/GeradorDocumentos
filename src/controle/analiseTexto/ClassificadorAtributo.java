@@ -9,9 +9,9 @@ import dados.DAO.DAO;
 import dados.DAO.DicionarioDAO;
 import visao.view.SRSJTree.TreeBuilder;
 import visao.view.SRSJTree.TreeProblemasNode;
-import entity.Atributo;
-import entity.Isr;
-import entity.Projeto;
+import entidades.Atributo;
+import entidades.Isr;
+import entidades.Projeto;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -22,8 +22,8 @@ import javax.swing.JMenuItem;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 import visao.view.tools.Constante;
-import view.Editor;
-import static view.Editor.jTreeExplorar;
+import visao.view.Editor;
+import static visao.view.Editor.jTreeExplorar;
 
 /**
  *

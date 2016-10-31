@@ -6,7 +6,7 @@
 package controle.intellisense;
 
 import dados.DAO.DicionarioDAO;
-import entity.tools.Sinonimo;
+import entidades.tools.Sinonimo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;

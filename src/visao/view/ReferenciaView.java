@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package visao.view;
 
 import visao.view.JTable.CustomRenderer;
-import entity.Projeto;
+import entidades.Projeto;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.beans.Beans;
@@ -26,7 +26,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import visao.view.tools.LerPdfTxt;
-import view.tools.IJframe;
+import visao.tools.IJframe;
 import visao.view.tools.Constante;
 
 /**
@@ -229,7 +229,7 @@ public class ReferenciaView extends JPanel implements IJframe {
     private javax.swing.JTable masterTable;
     private javax.swing.JTextField nomeArquivoField;
     private javax.persistence.Query query;
-    private java.util.List<entity.Referencia> referenciaList;
+    private java.util.List<entidades.Referencia> referenciaList;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     public static void main(String[] args) {
@@ -288,7 +288,7 @@ public class ReferenciaView extends JPanel implements IJframe {
 
     @Override
     public void incluir() {
-        entity.Referencia t = new entity.Referencia();
+        entidades.Referencia t = new entidades.Referencia();
         entityManager.getTransaction().begin();
         t.setIdProjeto(this.projeto);
         entityManager.persist(t);
@@ -306,8 +306,8 @@ public class ReferenciaView extends JPanel implements IJframe {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<entity.Referencia> merged = new ArrayList<entity.Referencia>(referenciaList.size());
-            for (entity.Referencia t : referenciaList) {
+            List<entidades.Referencia> merged = new ArrayList<entidades.Referencia>(referenciaList.size());
+            for (entidades.Referencia t : referenciaList) {
                 merged.add(entityManager.merge(t));
             }
             referenciaList.clear();
@@ -333,7 +333,7 @@ public class ReferenciaView extends JPanel implements IJframe {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
         }
-        entity.Referencia t = referenciaList.get(masterTable.convertRowIndexToModel(selected[0]));
+        entidades.Referencia t = referenciaList.get(masterTable.convertRowIndexToModel(selected[0]));
         try {
             int resultado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar a Referência o registro?", "Alerta!", JOptionPane.YES_NO_OPTION);
             if (resultado == JOptionPane.YES_OPTION) {
