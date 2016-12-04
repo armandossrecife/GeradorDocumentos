@@ -147,6 +147,7 @@ public class DAO<T> {
         EntityManager em = new JPAUtil().getEntityManager();
         em.clear();
         if (idProjeto != null) {
+            //verificar essas barras
             temp = em.createQuery("select t from " + classe.getSimpleName() + " t where t.nome = " + "\"" + de + "\""
                     + " and t.idProjeto.id = " + idProjeto).getResultList();
         }else{

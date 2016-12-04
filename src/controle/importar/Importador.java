@@ -107,6 +107,7 @@ public class Importador {
                 classe = Class.forName("entidades.entity." + nomeClasse);
             }
             System.out.println(nomeClasse);
+            //modificar para deixar portavel essa parte
             importarTabela(".\\importar\\" + arquivo + ".sql", classe);
         }
 

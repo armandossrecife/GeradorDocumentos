@@ -40,6 +40,7 @@ public class TreeProblemaCellRenderer extends DefaultTreeCellRenderer implements
                 TreeProblemasNode no = (TreeProblemasNode) objeto;
                 tipoNo = no.getTipoNode();
             }
+            //verificar essas barras
             switch (tipoNo) {
                 case Constante.ERRO_:
                     setIcon(new ImageIcon(getClass().getResource("/imagens/error.png")));

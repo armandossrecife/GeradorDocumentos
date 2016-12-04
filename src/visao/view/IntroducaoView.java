@@ -264,6 +264,7 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
 
     @Override
     public void salvar() {
+        
         try {
             if (entityManager.getTransaction().isActive()) {
                 entityManager.getTransaction().commit();

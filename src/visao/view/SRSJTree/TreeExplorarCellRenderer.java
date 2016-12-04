@@ -60,7 +60,7 @@ public class TreeExplorarCellRenderer extends DefaultTreeCellRenderer implements
                     valorNo = no.getTipoNode();
                 }
             }
-
+            //verificar essas barras
             switch (valorNo) {
                 case Constante.CONCEITO:
                     setIcon(new ImageIcon(getClass().getResource("/imagens/conceito.png")));

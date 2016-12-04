@@ -30,7 +30,7 @@ public class TreeMenuCellRender extends DefaultTreeCellRenderer implements TreeC
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) {
 
         super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
-
+        //verificar essas barras
         if (value.toString().equals("Objetivo/Escopo")) {
             setIcon(new ImageIcon(getClass().getResource("/imagens/subject-16.png")));
         }

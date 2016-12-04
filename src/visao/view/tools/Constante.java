@@ -39,8 +39,9 @@ import controle.sinonimo.SinonimoTools;
  * @author helcio.soares
  */
 public class Constante {
-
+    //verificar barras
     // Veros especiais: aplicar, calcular, descontar.
+    public static final String FILE_SEPARATOR = "file.separator";
     public static final String DOCUMENTOSESR = ".\\documentos\\";
     public static final String ARQUIVOS = ".\\arquivos\\";
     public static final String DIRETORIO = ".\\projetos\\";

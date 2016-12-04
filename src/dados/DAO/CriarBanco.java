@@ -19,6 +19,7 @@ import visao.view.tools.Constante;
 public class CriarBanco {
 
     private String driver = "com.mysql.jdbc.Driver";
+    //verificar se precisar modificar isso das barras
     private String url = "jdbc:mysql://localhost";
     private String login = "editor";
     private String pass = "editor";

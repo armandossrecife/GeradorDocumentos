@@ -91,6 +91,9 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         cb.criarBanco();
         telaProjeto = new ProjetoView(this, rootPaneCheckingEnabled);
         initComponents();
+        buttonValidar.setEnabled(false);
+        buttonvalidacaoSimples.setEnabled(false);
+        
 
         // jSplitPane3.getRightComponent().setPreferredSize(new Dimension(100, 700));
         jSplitPane2.setEnabled(false);
@@ -191,8 +194,8 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         buttonAdd = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonSave = new javax.swing.JButton();
-        buttonDelete3 = new javax.swing.JButton();
-        buttonDelete4 = new javax.swing.JButton();
+        buttonValidar = new javax.swing.JButton();
+        buttonvalidacaoSimples = new javax.swing.JButton();
         jSplitPane3 = new javax.swing.JSplitPane();
         rodape = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -299,29 +302,29 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         });
         jToolBar2.add(buttonSave);
 
-        buttonDelete3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check-yes-ok-icone-7166-32.png"))); // NOI18N
-        buttonDelete3.setFocusable(false);
-        buttonDelete3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonDelete3.setIconTextGap(0);
-        buttonDelete3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        buttonDelete3.addActionListener(new java.awt.event.ActionListener() {
+        buttonValidar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check-yes-ok-icone-7166-32.png"))); // NOI18N
+        buttonValidar.setFocusable(false);
+        buttonValidar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonValidar.setIconTextGap(0);
+        buttonValidar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonValidar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDelete3ActionPerformed(evt);
+                buttonValidarActionPerformed(evt);
             }
         });
-        jToolBar2.add(buttonDelete3);
+        jToolBar2.add(buttonValidar);
 
-        buttonDelete4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/checked-do-list-icone-6376-32.png"))); // NOI18N
-        buttonDelete4.setFocusable(false);
-        buttonDelete4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonDelete4.setIconTextGap(0);
-        buttonDelete4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        buttonDelete4.addActionListener(new java.awt.event.ActionListener() {
+        buttonvalidacaoSimples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/checked-do-list-icone-6376-32.png"))); // NOI18N
+        buttonvalidacaoSimples.setFocusable(false);
+        buttonvalidacaoSimples.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonvalidacaoSimples.setIconTextGap(0);
+        buttonvalidacaoSimples.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonvalidacaoSimples.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDelete4ActionPerformed(evt);
+                buttonvalidacaoSimplesActionPerformed(evt);
             }
         });
-        jToolBar2.add(buttonDelete4);
+        jToolBar2.add(buttonvalidacaoSimples);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -493,12 +496,12 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         exibirTelaProjeto();
     }//GEN-LAST:event_buttonAdd2ActionPerformed
 
-    private void buttonDelete3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDelete3ActionPerformed
+    private void buttonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidarActionPerformed
         // TODO add your handling code here:
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         iFrameAtivo.validarSentenca();
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-    }//GEN-LAST:event_buttonDelete3ActionPerformed
+    }//GEN-LAST:event_buttonValidarActionPerformed
 
     private void jTreeExplorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeExplorarMouseClicked
         int row = jTreeExplorar.getClosestRowForLocation(evt.getX(), evt.getY());
@@ -543,11 +546,11 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_buttonAdd3ActionPerformed
 
-    private void buttonDelete4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDelete4ActionPerformed
+    private void buttonvalidacaoSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonvalidacaoSimplesActionPerformed
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         iFrameAtivo.validarTodasSentenca();
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonDelete4ActionPerformed
+    }//GEN-LAST:event_buttonvalidacaoSimplesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,9 +561,9 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
     private javax.swing.JButton buttonAdd2;
     private javax.swing.JButton buttonAdd3;
     private javax.swing.JButton buttonDelete;
-    private javax.swing.JButton buttonDelete3;
-    private javax.swing.JButton buttonDelete4;
     private javax.swing.JButton buttonSave;
+    private javax.swing.JButton buttonValidar;
+    private javax.swing.JButton buttonvalidacaoSimples;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

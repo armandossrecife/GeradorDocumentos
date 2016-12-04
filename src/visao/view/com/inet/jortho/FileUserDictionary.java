@@ -51,6 +51,7 @@ public class FileUserDictionary implements UserDictionaryProvider {
      *
      * @param fileBase the base
      */
+    //verificar essas barras
     public FileUserDictionary(String fileBase) {
         if (fileBase == null) {
             fileBase = "";
