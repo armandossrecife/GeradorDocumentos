@@ -10,6 +10,9 @@ import visao.tools.IJframe;
 import entidades.entity.Introducao;
 import entidades.entity.Projeto;
 import java.awt.Component;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -239,7 +242,11 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
         this.projeto = projeto;
         initComponents();
         try {
+            if(introducaoList.size()>0)
             introducao = introducaoList.get(0);
+            else{
+                introducao = new Introducao();
+            }
             Constante.desenharArvores("");
         } catch (Exception e) {
             introducao = null;
@@ -248,7 +255,8 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
         binding(introducao, "escopo", escopoField, "text");
         binding(introducao, "visaoGeral", visaoGeralField, "text");
         bindingGroup.bind();
-        Editor.setTitulo(projeto.getDe() + "\\Introdução");
+        
+        Editor.setTitulo(projeto.getDe() + System.getProperty("file.separator")+ "Introdução");
     }
 
     @Override
@@ -264,12 +272,23 @@ public class IntroducaoView extends javax.swing.JPanel implements IJframe {
 
     @Override
     public void salvar() {
-        
+//        EntityManagerFactory factory = Persistence.createEntityManagerFactory("introducao");
+//        EntityManager manager = factory.createEntityManager();
+//        manager.getTransaction().begin();    
+//        manager.persist(introducao);
+//        manager.getTransaction().commit(); 
+//        manager.close();
+
         try {
             if (entityManager.getTransaction().isActive()) {
+                introducao.setIdProjeto(projeto);
+                entityManager.persist(introducao);
                 entityManager.getTransaction().commit();
+                
             } else {
                 entityManager.getTransaction().begin();
+                introducao.setIdProjeto(projeto);
+                entityManager.persist(introducao);
                 entityManager.getTransaction().commit();
             }
         } catch (RollbackException rex) {
