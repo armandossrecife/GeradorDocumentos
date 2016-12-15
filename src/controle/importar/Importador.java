@@ -108,7 +108,10 @@ public class Importador {
             }
             System.out.println(nomeClasse);
             //modificar para deixar portavel essa parte
-            importarTabela(".\\importar\\" + arquivo + ".sql", classe);
+            String sep = System.getProperty(Constante.FILE_SEPARATOR);
+            //System.out.println(System.getProperty(Constante.USER_DIRECTORY));
+            String diretorioatual = System.getProperty(Constante.USER_DIRECTORY);
+            importarTabela(diretorioatual+ sep + "importar" + sep +  arquivo + ".sql", classe);
         }
 
     }

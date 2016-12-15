@@ -42,9 +42,13 @@ public class Constante {
     //verificar barras
     // Veros especiais: aplicar, calcular, descontar.
     public static final String FILE_SEPARATOR = "file.separator";
-    public static final String DOCUMENTOSESR = ".\\documentos\\";
-    public static final String ARQUIVOS = ".\\arquivos\\";
-    public static final String DIRETORIO = ".\\projetos\\";
+    public static final String USER_DIRECTORY = "user.dir";
+    public static final String DOCUMENTOSESR = System.getProperty(USER_DIRECTORY)+ System.getProperty(FILE_SEPARATOR)+ "documentos"+ System.getProperty(FILE_SEPARATOR);
+   // public static final String DOCUMENTOSESR = ".\\documentos\\";
+    public static final String ARQUIVOS = System.getProperty(USER_DIRECTORY)+ System.getProperty(FILE_SEPARATOR)+ "arquivos"+ System.getProperty(FILE_SEPARATOR);
+   // public static final String ARQUIVOS = ".\\arquivos\\";
+    public static final String DIRETORIO = System.getProperty(USER_DIRECTORY)+ System.getProperty(FILE_SEPARATOR)+ "projetos"+ System.getProperty(FILE_SEPARATOR);
+    //public static final String DIRETORIO = ".\\projetos\\";
     public static final String NOMEDOPRODUTO = "SRS EDITOR - ";
     public static final String INICIOFRASE = "o sistema deve ";
     public static final String BANCOMYSQL = "srsUFPI";
