@@ -32,6 +32,9 @@
             <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/DAO/CriarBanco.java</file>
             <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/META-INF/persistence.xml</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/dados/DAO/CriarBanco.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/dados/DAO/DAO.java</file>
+        </group>
     </open-files>
 </project-private>
