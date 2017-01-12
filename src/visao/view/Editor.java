@@ -49,6 +49,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.SwingUtilities;
@@ -91,8 +92,8 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         cb.criarBanco();
         telaProjeto = new ProjetoView(this, rootPaneCheckingEnabled);
         initComponents();
-        buttonValidar.setEnabled(false);
-        buttonvalidacaoSimples.setEnabled(false);
+        //buttonValidar.setEnabled(false);
+        //buttonvalidacaoSimples.setEnabled(false);
         
 
         // jSplitPane3.getRightComponent().setPreferredSize(new Dimension(100, 700));
@@ -186,6 +187,7 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         buttonAdd2 = new javax.swing.JButton();
         buttonAdd1 = new javax.swing.JButton();
         buttonAdd3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         jSplitPane2 = new javax.swing.JSplitPane();
@@ -254,6 +256,17 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
             }
         });
         jToolBar1.add(buttonAdd3);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Info-icon.png"))); // NOI18N
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
 
         jSplitPane1.setDividerLocation(230);
         jSplitPane1.setDividerSize(4);
@@ -359,7 +372,7 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
         );
 
         rodape.addTab("Saída", jPanel3);
@@ -455,30 +468,40 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        iFrameAtivo.incluir();
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-
+        if(iFrameAtivo!=null){
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            iFrameAtivo.incluir();
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha algum dos itens para adicionar");
+        }
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        iFrameAtivo.salvar();
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-
+        if(iFrameAtivo!=null){
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            iFrameAtivo.salvar();
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha algum dos itens para salvar");
+        }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        iFrameAtivo.deletar();
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        if(iFrameAtivo!=null){
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            iFrameAtivo.deletar();
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha algum dos itens para deletar");
+        }
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdd1ActionPerformed
@@ -552,6 +575,19 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
         getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));        // TODO add your handling code here:
     }//GEN-LAST:event_buttonvalidacaoSimplesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String texto = " O Gerador de documento de requisitos é uma ferramenta desenvolvida"
+                + "\n no mestrado do Hélcio De Abreu Soares pela Universidade Federal do Piauí."
+                + "\n O seu trabalho foi propor uma metodologia para auxiliar a escrita de documentos"
+                + "\n de requisitos completos, consistentes e não ambíguos, denominada HELP4ERS."
+                + "\n No momento esta fazendo parte dos projetos do Estágio Supervisionado no NTI,"
+                + "\n tendo como primeiro colaborador o graduando Wellington Teixeira Coimbra."
+                + "\n O objetivo desse estágio é fazer melhorias do projeto para que possa estar "
+                + "\n apto a ajudar cada vez mais pessoas no desenvolvimento de seus projetos";
+        JOptionPane.showMessageDialog(null, texto);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -564,6 +600,7 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
     private javax.swing.JButton buttonSave;
     private javax.swing.JButton buttonValidar;
     private javax.swing.JButton buttonvalidacaoSimples;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

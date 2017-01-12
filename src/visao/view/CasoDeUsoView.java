@@ -517,7 +517,8 @@ public class CasoDeUsoView extends JPanel implements IJframe {
             if (resultado == JOptionPane.YES_OPTION) {
                 entityManager.remove(entityManager.merge(t));
                 entityManager.getTransaction().commit();
-                list.remove(t);
+                //list.remove(t);
+                list.remove(t.getId());
             } else {
                 return;
             }
