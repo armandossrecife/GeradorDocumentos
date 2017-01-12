@@ -54,6 +54,7 @@ public class ConstrutorDeAcao {
         }
 
         String etiqueta = AnalisePeriodo.tagger.getHashEtiquetas().get(verbo);
+        if(etiqueta!=null)
         if (etiqueta.equals("VMN") || etiqueta.equals("VMI")) {
             String lemma = AnalisePeriodo.getLemmas().get(verbo);
             if (verbo.length() > 4 && conjugacaoVerbo.contains(verbo.substring(verbo.length() - 2, verbo.length()))) {
