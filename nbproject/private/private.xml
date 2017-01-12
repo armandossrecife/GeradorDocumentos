@@ -33,8 +33,11 @@
             <file>file:/D:/mestrado/netbeans/SRSEDITORMCertidoes/src/META-INF/persistence.xml</file>
         </group>
         <group>
-            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/dados/DAO/CriarBanco.java</file>
-            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/dados/DAO/DAO.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/visao/view/IntroducaoView.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/visao/view/IsrView.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/visao/view/tools/ConstrutorDeAcao.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/visao/view/CasoDeUsoView.java</file>
+            <file>file:/C:/Users/Wellington/Documents/NetBeansProjects/GeradorDeRequisitos/src/visao/view/Editor.java</file>
         </group>
     </open-files>
 </project-private>
