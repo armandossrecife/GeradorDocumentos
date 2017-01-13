@@ -584,7 +584,8 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
                 + "\n No momento esta fazendo parte dos projetos do Estágio Supervisionado no NTI,"
                 + "\n tendo como primeiro colaborador o graduando Wellington Teixeira Coimbra."
                 + "\n O objetivo desse estágio é fazer melhorias do projeto para que possa estar "
-                + "\n apto a ajudar cada vez mais pessoas no desenvolvimento de seus projetos";
+                + "\n apto a ajudar cada vez mais pessoas no desenvolvimento de seus projetos."
+                + "\n URL : https://github.com/wellingtonCoimbra/GeradorDocumentos";
         JOptionPane.showMessageDialog(null, texto);
     }//GEN-LAST:event_jButton1ActionPerformed
 
