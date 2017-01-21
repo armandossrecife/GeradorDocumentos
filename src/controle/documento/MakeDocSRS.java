@@ -29,6 +29,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import visao.view.tools.Constante;
 import word.w2004.Document2004;
 import word.w2004.elements.Paragraph;
@@ -89,7 +90,7 @@ public class MakeDocSRS {
     private void imprimirIntroducao() {
         DAO<Introducao> introducaoDao = new DAO(Introducao.class);
         Introducao introducao = introducaoDao.buscaPorProjeto(idProjeto.getId());
-
+        if(introducao!=null){
         ParagraphStyles ps = ParagraphStyles.getInstance();
 
         Paragraph paragrafo1 = Paragraph.with("Titulo1");
@@ -115,6 +116,9 @@ public class MakeDocSRS {
         document.addEle(Write.type("<b>1.5 Definições e Siglas<b>", paragrafo1));
 
         imprimirTabelas(paragrafo1, Constante.CONCEITO, "C");
+        }else{
+            JOptionPane.showMessageDialog(null, "preencher os campos de introdução");
+        }
     }
 
     private void imprimirReferencia(Paragraph paragrafo1) {
@@ -143,12 +147,15 @@ public class MakeDocSRS {
             cDescricao.getParagraphs().get(0).withStyle().setStyleType(PredefinedStyles.StyleType.Normal);
 
         }
-        t.addHeaderWidth(
+        if(listaRerefencia.size()!=0){
+            t.addHeaderWidth(
                 new String[]{"ID", "Descrição", "Arquivo"},
                 new Double[]{-1.9, -11.1, -5.5});
 
-        document.addEle(t.getContent());
-
+            document.addEle(t.getContent());
+        }else{
+            JOptionPane.showMessageDialog(null, "insira a referência");
+        }
     }
 
     private void imprimirUsuarioExternosEInterfaceDeUsuarios() {
@@ -347,11 +354,13 @@ public class MakeDocSRS {
             cDescricao.getParagraphs().get(0).withStyle().setStyleType(PredefinedStyles.StyleType.Normal);
 
         }
-        t.addHeaderWidth(
+        if(listaTabela.size()!=0){
+            t.addHeaderWidth(
                 new String[]{"ID", "Nome", "Descrição"},
                 new Double[]{-1.5, -5.1, -11.1});
 
-        document.addEle(t.getContent());
+            document.addEle(t.getContent());
+        }
     }
 
     private List<Tabela> carregarTabela(int tipoTabela) {
