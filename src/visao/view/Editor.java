@@ -521,9 +521,13 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
 
     private void buttonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidarActionPerformed
         // TODO add your handling code here:
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        iFrameAtivo.validarSentenca();
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        if(iFrameAtivo!=null){
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            iFrameAtivo.validarSentenca();
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha algum dos itens para validar");
+        }
     }//GEN-LAST:event_buttonValidarActionPerformed
 
     private void jTreeExplorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeExplorarMouseClicked
@@ -570,9 +574,13 @@ public class Editor extends javax.swing.JFrame implements TreeSelectionListener 
     }//GEN-LAST:event_buttonAdd3ActionPerformed
 
     private void buttonvalidacaoSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonvalidacaoSimplesActionPerformed
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        iFrameAtivo.validarTodasSentenca();
-        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));        // TODO add your handling code here:
+        if(iFrameAtivo!=null){
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            iFrameAtivo.validarTodasSentenca();
+            getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR)); 
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha algum dos itens para validar");
+        }
     }//GEN-LAST:event_buttonvalidacaoSimplesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
